@@ -1,0 +1,19 @@
+name: CI - servicio-facturacion
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'servicio-facturacion/**'
+      - '.github/workflows/reusable-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'servicio-facturacion/**'
+
+jobs:
+  ci:
+    uses: ./.github/workflows/reusable-ci.yml
+    with:
+      service: servicio-facturacion
+    secrets: inherit
